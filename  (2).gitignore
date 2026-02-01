@@ -1,0 +1,43 @@
+# Credentials and secrets
+CREDENTIALS.md
+.env
+*.env
+**/application-*.yml
+firebase-service-account.json
+
+# Backend
+backend/target/
+backend/.mvn/
+backend/HELP.md
+backend/.idea/
+backend/*.iml
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env.local
+frontend/.env.production
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
