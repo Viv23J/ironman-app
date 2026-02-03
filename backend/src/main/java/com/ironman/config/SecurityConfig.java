@@ -54,9 +54,15 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
+                        // Public endpoints
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/services/**").permitAll()
+                        .requestMatchers("/api/v1/cloth-types/**").permitAll()
+                        .requestMatchers("/api/v1/add-ons/**").permitAll()
+                        .requestMatchers("/api/v1/slots/**").permitAll()
                         .requestMatchers("/api/test/**").permitAll()
                         .requestMatchers("/error").permitAll()
+                        // All other endpoints require authentication
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
