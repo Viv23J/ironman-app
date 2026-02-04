@@ -27,8 +27,8 @@ const firebaseConfig = {
 
 **Test Mode Keys:**
 ```
-Key ID: [Your Razorpay Key ID - starts with rzp_test_]
-Key Secret: [Your Razorpay Key Secret]
+Key ID: rzp_test_S9KOHjbHuGs5r1
+Key Secret: pd5gs6Y0S6vJi5ix8yU1fiFi
 ```
 
 **Get Keys From:** https://dashboard.razorpay.com/app/keys
