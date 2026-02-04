@@ -418,3 +418,64 @@ src/main/java/com/ironman/
 
 └── util/
 
+**Current Phase:** Day 5 Complete → Ready for Day 6
+**Overall Progress:** 28% (5 of 18 days)
+
+## Day 5 - Payment Integration (Razorpay) ✅
+
+### Completed Tasks
+
+#### Entities & DTOs
+- ✅ Payment.java entity
+- ✅ PaymentRequest.java
+- ✅ PaymentVerificationRequest.java
+- ✅ PaymentResponse.java
+- ✅ RazorpayOrderResponse.java
+
+#### Repository
+- ✅ PaymentRepository with custom queries
+
+#### Configuration
+- ✅ RazorpayConfig for API credentials
+- ✅ Updated application.yml with Razorpay keys
+
+#### Services
+- ✅ PaymentService with full payment lifecycle
+- ✅ Direct Razorpay API integration via HTTP
+- ✅ HMAC SHA256 signature verification
+- ✅ Webhook event handling
+
+#### Controller
+- ✅ PaymentController with 5 endpoints
+
+#### Security
+- ✅ Updated SecurityConfig for public webhook endpoint
+- ✅ Signature verification for payments and webhooks
+
+#### Database
+- ✅ Fixed payments table schema
+- ✅ Proper column mapping for payment_method
+
+#### APIs Working
+- POST   /api/v1/payments/create-order ✅
+- POST   /api/v1/payments/verify ✅
+- POST   /api/v1/payments/webhook ✅
+- GET    /api/v1/payments/order/{orderId} ✅
+- GET    /api/v1/payments/history/{orderId} ✅
+
+#### Testing
+- ✅ Successfully created Razorpay order
+- ✅ Payment record saved in database
+- ✅ Order linked to payment correctly
+- ✅ All endpoints tested in Postman
+
+### Next Steps (Day 6)
+- [ ] Delivery partner registration
+- [ ] Partner document upload
+- [ ] Assignment system
+- [ ] Real-time location tracking
+```
+
+4. **Save and commit:**
+```
+Update SESSION_STATUS.md - Day 5 complete
