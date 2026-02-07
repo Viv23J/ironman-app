@@ -33,6 +33,7 @@ public class OrderService {
     private final AddOnRepository addOnRepository;
     private final SlotService slotService;
     private final PricingService pricingService;
+    private final NotificationService notificationService;
 
     private static final BigDecimal TAX_RATE = new BigDecimal("0.18");
 
@@ -169,10 +170,18 @@ public class OrderService {
         savedOrder.setAddons(orderAddons);
 
         // Save order with items and addons
+        // Save order with items and addons
         Order finalOrder = orderRepository.save(savedOrder);
 
         // Book the slot
         slotService.bookSlot(request.getPickupDate(), request.getPickupSlot());
+
+        // Send notification
+        notificationService.notifyOrderCreated(
+                userId,
+                finalOrder.getId(),
+                finalOrder.getOrderNumber()
+        );
 
         log.info("Order created successfully: {}", finalOrder.getOrderNumber());
 
