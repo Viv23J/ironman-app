@@ -36,6 +36,7 @@ public class PaymentService {
     private final RazorpayConfig razorpayConfig;
     private final PaymentRepository paymentRepository;
     private final OrderRepository orderRepository;
+    private final NotificationService notificationService;
 
     // =============================================
     // STEP 1: CREATE RAZORPAY ORDER
@@ -142,7 +143,14 @@ public class PaymentService {
         order.setPaymentStatus(PaymentStatus.PAID);
         orderRepository.save(order);
 
-        log.info("Payment VERIFIED — order: {}", order.getOrderNumber());
+        // Send notification
+        notificationService.notifyPaymentSuccess(
+                order.getCustomer().getId(),
+                order.getId(),
+                order.getOrderNumber()
+        );
+
+        log.info("Payment VERIFIED for order: {}", order.getOrderNumber());
         return mapToPaymentResponse(updated);
     }
 
