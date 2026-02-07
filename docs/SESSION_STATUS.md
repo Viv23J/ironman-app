@@ -914,3 +914,105 @@ BACKEND (src/main/java/com/ironman/)
 
 Update SESSION\_STATUS.md - Day 6 complete
 
+**Current Phase:** Day 7 Complete → Ready for Day 8
+**Overall Progress:** 39% (7 of 18 days)
+
+## Day 7 - Review & Notification System ✅
+
+### Completed Tasks
+
+#### Entities
+- ✅ Review.java
+- ✅ Notification.java
+- ✅ ReviewType.java (enum)
+- ✅ NotificationType.java (enum)
+- ✅ Updated User.java with fcmToken
+
+#### Repositories
+- ✅ ReviewRepository
+- ✅ NotificationRepository
+
+#### DTOs
+- ✅ ReviewRequest
+- ✅ FcmTokenRequest
+- ✅ ReviewResponse
+- ✅ NotificationResponse
+- ✅ PartnerRatingResponse
+
+#### Services
+- ✅ ReviewService
+  - Create order reviews
+  - Create partner reviews
+  - Get reviews by order/customer/partner
+  - Calculate partner ratings
+  - Moderate reviews
+- ✅ NotificationService
+  - Create notifications
+  - Get user notifications
+  - Read/unread tracking
+  - FCM token management
+  - Helper methods for different events
+
+#### Controllers
+- ✅ ReviewController (6 endpoints)
+- ✅ NotificationController (6 endpoints)
+
+#### Integration
+- ✅ OrderService sends notification on order creation
+- ✅ PaymentService sends notification on payment success
+- ✅ Automatic notification triggers
+
+#### Features Implemented
+- ✅ Customer can review orders (1-5 stars)
+- ✅ Customer can review delivery partners (1-5 stars)
+- ✅ Automatic partner rating calculation
+- ✅ Review moderation system
+- ✅ In-app notifications
+- ✅ Notification read/unread tracking
+- ✅ FCM token storage (ready for push notifications)
+- ✅ Automatic notifications on key events
+
+#### APIs Working (12 endpoints)
+**Reviews:**
+- POST   /api/v1/reviews ✅
+- GET    /api/v1/reviews/order/{orderId} ✅
+- GET    /api/v1/reviews/my-reviews ✅
+- GET    /api/v1/reviews/partner/{partnerId} ✅
+- GET    /api/v1/reviews/partner/{partnerId}/rating ✅
+- PUT    /api/v1/reviews/{id}/moderate ✅
+
+**Notifications:**
+- POST   /api/v1/notifications/fcm-token ✅
+- GET    /api/v1/notifications ✅
+- GET    /api/v1/notifications/unread ✅
+- GET    /api/v1/notifications/unread-count ✅
+- PUT    /api/v1/notifications/{id}/read ✅
+- PUT    /api/v1/notifications/read-all ✅
+
+#### Database Changes
+- ✅ Dropped extra rating columns from reviews
+- ✅ Updated unique constraint for review types
+- ✅ Added fcm_token to users table
+
+#### Testing
+- ✅ Order review created successfully
+- ✅ Partner review created successfully
+- ✅ Partner rating calculated correctly
+- ✅ Reviews fetched by order/customer/partner
+- ✅ Notifications created automatically
+- ✅ Unread notifications filtered
+- ✅ Mark as read working
+- ✅ FCM token saved
+- ✅ All data verified in database
+
+### Next Steps (Day 8)
+- [ ] Admin dashboard APIs
+- [ ] Order management (admin)
+- [ ] Partner management (admin)
+- [ ] Analytics & reports
+- [ ] System statistics
+```
+
+4. **Save and commit:**
+```
+Update SESSION_STATUS.md - Day 7 complete
