@@ -48,15 +48,15 @@ logging:
 # RazorPay configuration
 razorpay:
   key:
-    id: rzp_test_S9KOHjbHuGs5r1
-    secret: pd5gs6Y0S6vJi5ix8yU1fiFi
+    id: ${RAZORPAY_ID}
+    secret: ${RAZORPAY_SECRET}
   webhook:
-    secret: ironman_webhook_secret_2026
+    secret: ${RAZORPAY_WEBHOOK_SECRET}
 
 # File Upload Configuration
 file:
   upload:
-    dir: uploads/
+    dir: C:/Projects/ironman-app/backend/uploads/
     max-file-size: 5MB
     max-request-size: 10MB
     allowed-image-types: jpg,jpeg,png,gif
