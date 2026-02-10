@@ -61,6 +61,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/add-ons/**").permitAll()
                         .requestMatchers("/api/v1/slots/**").permitAll()
                         .requestMatchers("/api/v1/payments/webhook").permitAll()
+                        .requestMatchers("/api/v1/files/**").permitAll()
                         .requestMatchers("/api/test/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         // All other endpoints require authentication
