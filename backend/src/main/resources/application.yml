@@ -1,6 +1,11 @@
 spring:
   application:
     name: ironman-backend
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 10MB
 
   datasource:
     url: jdbc:postgresql://localhost:5432/ironman_db
@@ -47,3 +52,12 @@ razorpay:
     secret: pd5gs6Y0S6vJi5ix8yU1fiFi
   webhook:
     secret: ironman_webhook_secret_2026
+
+# File Upload Configuration
+file:
+  upload:
+    dir: uploads/
+    max-file-size: 5MB
+    max-request-size: 10MB
+    allowed-image-types: jpg,jpeg,png,gif
+    allowed-document-types: pdf,jpg,jpeg,png
