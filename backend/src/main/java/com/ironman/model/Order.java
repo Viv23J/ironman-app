@@ -92,6 +92,13 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderAddon> addons = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coupon_id")
+    private Coupon coupon;
+
+    @Column(name = "coupon_code", length = 50)
+    private String couponCode;
+
     // Timestamps
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

@@ -1,0 +1,1047 @@
+{
+  "info": {
+    "name": "User Creation API - 50 Test Cases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Test 1 - Valid User Creation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"phoneNumber\": 9000000001,\n  \"emailId\": \"test1@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 2 - Missing roll-number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Smith\",\n  \"phoneNumber\": 9000000002,\n  \"emailId\": \"test2@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 3 - Missing firstName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lastName\": \"Doe\",\n  \"phoneNumber\": 9000000003,\n  \"emailId\": \"test3@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 4 - Missing lastName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"John\",\n  \"phoneNumber\": 9000000004,\n  \"emailId\": \"test4@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 5 - Missing phoneNumber",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"emailId\": \"test5@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 6 - Missing emailId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"phoneNumber\": 9000000006\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 7 - Duplicate Email (Run Test 1 First)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Smith\",\n  \"phoneNumber\": 9000000007,\n  \"emailId\": \"test1@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 8 - Duplicate Phone Number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Bob\",\n  \"lastName\": \"Wilson\",\n  \"phoneNumber\": 9000000001,\n  \"emailId\": \"test8@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 9 - Invalid Email Format",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000009,\n  \"emailId\": \"notanemail\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 10 - Email Missing @",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000010,\n  \"emailId\": \"test.gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 11 - Empty Email",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000011,\n  \"emailId\": \"\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 12 - Phone Too Short",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 900,\n  \"emailId\": \"test12@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 13 - Phone Too Long",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 90000000000000,\n  \"emailId\": \"test13@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 14 - Negative Phone Number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": -9000000014,\n  \"emailId\": \"test14@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 15 - Phone as String",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": \"9000000015\",\n  \"emailId\": \"test15@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 16 - Empty firstName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000016,\n  \"emailId\": \"test16@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 17 - Null firstName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": null,\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000017,\n  \"emailId\": \"test17@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 18 - Empty lastName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"\",\n  \"phoneNumber\": 9000000018,\n  \"emailId\": \"test18@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 19 - Null phoneNumber",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": null,\n  \"emailId\": \"test19@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 20 - firstName as Number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": 123,\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000020,\n  \"emailId\": \"test20@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 21 - All Wrong Data Types",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": 123,\n  \"lastName\": true,\n  \"phoneNumber\": \"notanumber\",\n  \"emailId\": 456\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 22 - Missing Content-Type Header",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000022,\n  \"emailId\": \"test22@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 23 - Wrong Content-Type",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "text/plain"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000023,\n  \"emailId\": \"test23@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 24 - Missing Cookie",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000024,\n  \"emailId\": \"test24@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 25 - Wrong Cookie Value",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=false"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000025,\n  \"emailId\": \"test25@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 26 - GET Method Instead of POST",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 27 - PUT Method",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000027,\n  \"emailId\": \"test27@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 28 - DELETE Method",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 29 - Very Long firstName (1000 chars)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000029,\n  \"emailId\": \"test29@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 30 - Single Character Names",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"A\",\n  \"lastName\": \"B\",\n  \"phoneNumber\": 9000000030,\n  \"emailId\": \"test30@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 31 - Special Characters in Names",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test@#$\",\n  \"lastName\": \"User!@#\",\n  \"phoneNumber\": 9000000031,\n  \"emailId\": \"test31@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 32 - Numbers in Names",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test123\",\n  \"lastName\": \"User456\",\n  \"phoneNumber\": 9000000032,\n  \"emailId\": \"test32@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 33 - SQL Injection in firstName",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"'; DROP TABLE users--\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000033,\n  \"emailId\": \"test33@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 34 - XSS Attempt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"<script>alert('xss')</script>\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000034,\n  \"emailId\": \"test34@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 35 - Extra Fields in Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000035,\n  \"emailId\": \"test35@gmail.com\",\n  \"extraField\": \"shouldBeIgnored\",\n  \"anotherField\": 123\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 36 - Empty Request Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 37 - Email with Double Dots",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000037,\n  \"emailId\": \"test..user@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 38 - Email with Spaces",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000038,\n  \"emailId\": \"test user@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 39 - Email Multiple @ Symbols",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000039,\n  \"emailId\": \"test@@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 40 - Phone Number Zero",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 0,\n  \"emailId\": \"test40@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 41 - firstName with Leading Space",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \" Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000041,\n  \"emailId\": \"test41@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 42 - firstName Only Spaces",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"     \",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000042,\n  \"emailId\": \"test42@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 43 - Array Instead of Object",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000043,\n  \"emailId\": \"test43@gmail.com\"\n}]"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 44 - Null Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "null"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 45 - Phone with Decimal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000045.5,\n  \"emailId\": \"test45@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 46 - Valid Email with Plus Sign",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000046,\n  \"emailId\": \"test+tag@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 47 - Valid Email with Dots",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000047,\n  \"emailId\": \"test.user.name@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 48 - firstName with Apostrophe",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"O'Brien\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000048,\n  \"emailId\": \"test48@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 49 - firstName with Hyphen",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Mary-Jane\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000049,\n  \"emailId\": \"test49@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    },
+    {
+      "name": "Test 50 - Email Case Sensitivity Check",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "roll-number", "value": "1"},
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Cookie", "value": "isUserLoggedIn=true"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": 9000000050,\n  \"emailId\": \"TEST@GMAIL.COM\"\n}"
+        },
+        "url": {
+          "raw": "https://createtestuser.in/automation-campus/disabled/create/user",
+          "protocol": "https",
+          "host": ["createtestuser", "in"],
+          "path": ["automation-campus", "disabled", "create", "user"]
+        }
+      }
+    }
+  ]
+}
