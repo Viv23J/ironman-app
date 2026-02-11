@@ -28,6 +28,23 @@ spring:
       port: 6379
       timeout: 60000
 
+  # Email Configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: viv23j@gmail.com
+    password: kkvkjeiraqufylcu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
 server:
   port: 8080
   error:
@@ -37,6 +54,16 @@ server:
 jwt:
   secret: your-super-secret-256-bit-key-for-development-change-in-production
   expiration: 86400000
+
+# ... rest of your config ...
+
+# Application Configuration (at the end)
+app:
+  name: IronMan Laundry Service
+  email:
+    from: viv23j@gmail.com
+    support: support@ironman.com
+
 
 # Logging
 logging:
@@ -61,3 +88,5 @@ file:
     max-request-size: 10MB
     allowed-image-types: jpg,jpeg,png,gif
     allowed-document-types: pdf,jpg,jpeg,png
+
+
