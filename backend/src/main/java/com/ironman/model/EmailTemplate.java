@@ -1,0 +1,11 @@
+package com.ironman.model;
+
+public enum EmailTemplate {
+    ORDER_CONFIRMATION,
+    PAYMENT_SUCCESS,
+    ORDER_DELIVERED,
+    PARTNER_APPROVED,
+    PARTNER_REJECTED,
+    OTP_VERIFICATION,
+    PASSWORD_RESET
+}

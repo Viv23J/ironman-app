@@ -180,7 +180,10 @@ public class FileStorageService {
             String fileExtension = getFileExtension(originalFileName);
             String storedFileName = UUID.randomUUID().toString() + "." + fileExtension;
 
-            // Create directory if it doesn't exist
+            log.info("UPLOAD DIR: {}", fileStorageConfig.getUploadDir());
+            log.info("SUB DIR: {}", subDir);
+            log.info("TARGET LOCATION: {}", Paths.get(fileStorageConfig.getUploadDir() + subDir).resolve(storedFileName).toAbsolutePath());
+
             Path targetLocation = Paths.get(fileStorageConfig.getUploadDir() + subDir).resolve(storedFileName);
             Files.createDirectories(targetLocation.getParent());
 
