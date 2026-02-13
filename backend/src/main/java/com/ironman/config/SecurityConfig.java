@@ -65,6 +65,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/test/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/api/v1/email/test/**").permitAll()
+                        .requestMatchers("/api/v1/sms/test/**").permitAll()
                         // All other endpoints require authentication
                         .anyRequest().authenticated()
                 )
