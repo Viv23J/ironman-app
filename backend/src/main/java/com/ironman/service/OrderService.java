@@ -4,6 +4,8 @@ import com.ironman.dto.request.CreateOrderRequest;
 import com.ironman.dto.request.OrderAddonRequest;
 import com.ironman.dto.request.OrderItemRequest;
 import com.ironman.dto.response.*;
+import com.ironman.model.OrderStatusHistory;
+import com.ironman.repository.OrderStatusHistoryRepository;
 import com.ironman.exception.BadRequestException;
 import com.ironman.exception.ResourceNotFoundException;
 import com.ironman.model.*;
@@ -34,6 +36,8 @@ public class OrderService {
     private final SlotService slotService;
     private final PricingService pricingService;
     private final NotificationService notificationService;
+    private final OrderStatusHistoryRepository statusHistoryRepository;
+    private final OrderStatusService orderStatusService;
 
     private static final BigDecimal TAX_RATE = new BigDecimal("0.18");
 
@@ -176,6 +180,8 @@ public class OrderService {
         // Book the slot
         slotService.bookSlot(request.getPickupDate(), request.getPickupSlot());
 
+        orderStatusService.createInitialHistory(finalOrder);
+
         // Send notification
         notificationService.notifyOrderCreated(
                 userId,
@@ -313,5 +319,40 @@ public class OrderService {
         sb.append(", ").append(address.getState());
         sb.append(" - ").append(address.getPincode());
         return sb.toString();
+    }
+
+    /**
+     * Update order status (with history tracking)
+     */
+    @Transactional
+    public OrderResponse updateOrderStatus(Long orderId, Long userId, String status, String notes) {
+        log.info("Updating order {} status to {}", orderId, status);
+
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
+
+        // Verify order belongs to user (for customers)
+        if (!order.getCustomer().getId().equals(userId)) {
+            throw new BadRequestException("You can only update your own orders");
+        }
+
+        OrderStatus previousStatus = order.getStatus();
+        OrderStatus newStatus = OrderStatus.valueOf(status);
+
+        // Record status change in history
+        OrderStatusHistory history = new OrderStatusHistory();
+        history.setOrder(order);
+        history.setPreviousStatus(previousStatus);
+        history.setNewStatus(newStatus);
+        history.setNotes(notes);
+        history.setChangedBy("Customer"); // Or get from user context
+        statusHistoryRepository.save(history);
+
+        // Update order status
+        order.setStatus(newStatus);
+        Order updated = orderRepository.save(order);
+
+        log.info("Order status updated from {} to {}", previousStatus, newStatus);
+        return mapToOrderResponse(updated);
     }
 }
