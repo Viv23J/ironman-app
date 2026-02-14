@@ -216,10 +216,10 @@ public class OrderService {
     /**
      * Get single order by ID
      */
-    public OrderResponse getOrderById(Long userId, Long orderId) {
-        log.info("Fetching order {} for user: {}", orderId, userId);
+    public OrderResponse getOrderById(Long orderId, Long userId) {
+        log.info("Fetching order: {}", orderId);
 
-        Order order = orderRepository.findByIdAndCustomerId(orderId, userId)
+        Order order = orderRepository.findByIdWithDetails(orderId)
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
 
         return mapToOrderResponse(order);

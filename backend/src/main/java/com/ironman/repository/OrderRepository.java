@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -38,4 +40,18 @@ public interface OrderRepository extends JpaRepository<Order, Long>, JpaSpecific
     // Get latest order number
     @Query("SELECT o.orderNumber FROM Order o ORDER BY o.id DESC LIMIT 1")
     Optional<String> findLatestOrderNumber();
+
+    @Query("SELECT DISTINCT o FROM Order o " +
+            "LEFT JOIN FETCH o.customer " +
+            "LEFT JOIN FETCH o.items " +
+            "WHERE o.id = :orderId")
+    Optional<Order> findByIdWithDetails(@Param("orderId") Long orderId);
+
+    @Query("SELECT DISTINCT o FROM Order o " +
+            "LEFT JOIN FETCH o.customer " +
+            "LEFT JOIN FETCH o.pickupAddress " +
+            "LEFT JOIN FETCH o.deliveryAddress " +
+            "WHERE o.customer.id = :customerId " +
+            "ORDER BY o.createdAt DESC")
+    List<Order> findByCustomerIdWithDetails(@Param("customerId") Long customerId);
 }

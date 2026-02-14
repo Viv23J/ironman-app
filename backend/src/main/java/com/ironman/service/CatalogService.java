@@ -9,6 +9,9 @@ import com.ironman.repository.LaundryServiceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
+
 
 import java.util.List;
 
@@ -23,9 +26,12 @@ public class CatalogService {
 
     // --- Laundry Services ---
 
+    @Cacheable(value = "services", key = "'all'")
     public List<LaundryService> getAllServices() {
-        log.info("Fetching all active services");
-        return laundryServiceRepository.findByIsActiveTrue();
+        log.info("Fetching all services from database");
+
+
+        return laundryServiceRepository.findAll();
     }
 
     public List<LaundryService> getServicesByCategory(String category) {
@@ -35,9 +41,11 @@ public class CatalogService {
 
     // --- Cloth Types ---
 
+    @Cacheable(value = "clothTypes", key = "'all'")
     public List<ClothType> getAllClothTypes() {
-        log.info("Fetching all active cloth types");
-        return clothTypeRepository.findByIsActiveTrue();
+        log.info("Fetching all cloth types from database");
+
+        return clothTypeRepository.findAll();
     }
 
     public List<ClothType> getClothTypesByCategory(String category) {
@@ -46,7 +54,7 @@ public class CatalogService {
     }
 
     // --- Add-ons ---
-
+    @Cacheable(value = "addons", key = "'all'")
     public List<AddOn> getAllAddOns() {
         log.info("Fetching all active add-ons");
         return addOnRepository.findByIsActiveTrue();
